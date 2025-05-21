@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales
+.venv/
+venv/
+ENV/
+env/
+virtualenv/
+VirtualEnv/
+.virtual_env/
+.direnv/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Archivos generados por el script (ejemplos, ajusta según sea necesario)
+*.kmz
+*.kml
+*.csv
+*.xlsx 
+# Excluir específicamente los archivos de prueba si quieres mantenerlos fuera
+# EDITADO.xlsx 
+# RUTAS.txt
+
+# Archivos de diagnóstico (opcional, si no quieres versionarlo)
+# diagnose_exif_tag.py 
