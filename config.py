@@ -11,13 +11,14 @@ from typing import Optional, Dict, Any, Tuple, List, Union
 import math # Necesario para algunas constantes como math.inf si se usaran
 
 # --- MODO DE DEPURACIÓN ---
-DEBUG_MODE: bool = True # Cambiar a True para activar logs de depuración
+DEBUG_MODE: bool = False # Cambiar a True para activar logs de depuración
 
 # --- Constantes para Tags EXIF ---
 # Es importante que PIL_ExifTags se importe y use aquí para definir TAGS y GPSTAGS
 _TAGS_INTERNAL: Dict[int, str] = PIL_ExifTags.TAGS
 TAGS: Dict[int, str] = {v: k for k, v in _TAGS_INTERNAL.items()}
 GPSTAGS: Dict[int, str] = PIL_ExifTags.GPSTAGS
+DATETIME_TAG_ID: Optional[int] = TAGS.get("DateTime") # Originalmente 306
 
 GPS_IFD_TAG_ID: Optional[int] = TAGS.get("GPSInfo")
 ORIENTATION_TAG_ID: Optional[int] = TAGS.get("Orientation")
@@ -40,6 +41,14 @@ EXCEL_ROW_HEIGHT_FACTOR: float = 0.75
 # --- Constantes para Salida KMZ ---
 KMZ_IMAGE_WIDTH: int = 400
 KMZ_IMAGE_QUALITY: int = 85
+
+# NUEVAS CONSTANTES PARA XPTitle (Nome Personalizado)
+# ID del tag XPTitle. piexif lo maneja como piexif.ExifIFD.XPTitle.
+# Su valor decimal es 40091.
+NOME_PERSONALIZADO_TAG_ID = 315
+# XP_TITLE_TAG_ID: int = 40091 # ESTE TAG NOFUNCIONA
+# Clave que usaremos en el diccionario PhotoInfo y en los datos EXIF decodificados.
+PHOTO_INFO_CUSTOM_NAME_KEY: str = "custom_name"
 
 # --- Tipos para Type Hinting ---
 # Estos son alias de tipo que se usarán a través del proyecto.
